@@ -85,11 +85,25 @@
   #about { overflow-x: clip; }
   .about-visual::after { content: ""; position: absolute; inset: 18px -18px -18px 18px; border: 1px solid var(--gold); z-index: -1; }
 
-  /* ============ Stats ============ */
-  .stats { background: var(--ink); color: #fff; padding: 72px 0; }
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; }
-  .stat-num { font-family: var(--serif); font-size: 52px; color: var(--gold-light); font-weight: 600; line-height: 1; }
-  .stat-label { margin-top: 10px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+/* ============ Projects carousel ============ */
+  .projects { background: var(--ink); color: #fff; }
+  .proj-stage { position: relative; }
+  .projects h2 { color: #fff; }
+  .proj-head { margin-bottom: 44px; }
+  .proj-head p { color: rgba(255,255,255,.65); font-size: 17px; max-width: 520px; }
+  .proj-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); background: rgba(14,16,22,.7); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .2s; }
+  .proj-arrow.prev { left: -24px; }
+  .proj-arrow.next { right: -24px; }
+  .proj-arrow:hover { border-color: var(--gold-light); color: var(--gold-light); }
+  .proj-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .proj-track::-webkit-scrollbar { display: none; }
+  .proj-card { flex: 0 0 calc((100% - 48px) / 3); scroll-snap-align: start; }
+  .proj-img { position: relative; aspect-ratio: 4/3; border-radius: 2px; overflow: hidden; background: linear-gradient(150deg, #262c3c, #1a1e29); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.35); font-size: 12px; letter-spacing: .15em; text-transform: uppercase; }
+  .proj-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+  .proj-card:hover .proj-img img { transform: scale(1.04); }
+  .proj-dots { display: flex; justify-content: center; gap: 8px; margin-top: 36px; }
+  .proj-dot { width: 8px; height: 8px; border-radius: 50%; border: 0; background: rgba(255,255,255,.25); cursor: pointer; padding: 0; transition: all .25s; }
+  .proj-dot.active { background: var(--gold-light); width: 24px; border-radius: 4px; }
 
   /* ============ Approach ============ */
   .approach { background: var(--paper-2); }
@@ -143,7 +157,7 @@
     .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 56px; }
     .about-visual { aspect-ratio: 16/10; }
     .cards, .areas-list { grid-template-columns: 1fr; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; }
+    .proj-card { flex-basis: calc((100% - 24px) / 2); }
     .menu-toggle { display: block; }
     .links { position: fixed; inset: 76px 0 auto 0; background: var(--ink); flex-direction: column; gap: 0; padding: 12px 24px 28px; display: none; }
     .links.open { display: flex; }
@@ -153,7 +167,8 @@
   @media (max-width: 560px) {
     .wrap { padding: 0 16px; }
     .row-2 { grid-template-columns: 1fr; }
-    .stat-num { font-size: 42px; }
+    .proj-card { flex-basis: 85%; }
+    .proj-arrow { display: none; }
   }
 </style>
 </head>
@@ -214,16 +229,49 @@
   </div>
 </section>
 
-<!-- ================= STATS ================= -->
-<!-- Fill in real figures only. Delete any stat you don't want to publish. -->
-<div class="stats">
-  <div class="wrap stats-grid">
-    <div class="reveal"><div class="stat-num"><span class="ph">XX</span></div><div class="stat-label">Years in Real Estate</div></div>
-    <div class="reveal"><div class="stat-num"><span class="ph">XX</span></div><div class="stat-label">Properties Held</div></div>
-    <div class="reveal"><div class="stat-num"><span class="ph">XX</span></div><div class="stat-label">Acres of Land</div></div>
-    <div class="reveal"><div class="stat-num"><span class="ph">XX</span></div><div class="stat-label">Neighborhoods</div></div>
+<!-- ================= PROJECTS CAROUSEL ================= -->
+<!-- Photos only. Copy one <div class="proj-card"> block per photo, then uncomment its <img> line. -->
+<section id="projects" class="projects">
+  <div class="wrap">
+    <div class="proj-head reveal">
+      <div class="eyebrow">Our Projects</div>
+      <h2>Selected holdings.</h2>
+      <p>A look at land and property across Los Angeles.</p>
+    </div>
+    <div class="proj-stage">
+      <button class="proj-arrow prev" data-dir="-1" aria-label="Previous photo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="proj-track">
+      <div class="proj-card">
+        <div class="proj-img">Photo 1
+          <!-- <img src="images/project-1.jpg" alt="Golden Crown Realty project"> -->
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img">Photo 2
+          <!-- <img src="images/project-2.jpg" alt="Golden Crown Realty project"> -->
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img">Photo 3
+          <!-- <img src="images/project-3.jpg" alt="Golden Crown Realty project"> -->
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img">Photo 4
+          <!-- <img src="images/project-4.jpg" alt="Golden Crown Realty project"> -->
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img">Photo 5
+          <!-- <img src="images/project-5.jpg" alt="Golden Crown Realty project"> -->
+        </div>
+      </div>
+      </div>
+      <button class="proj-arrow next" data-dir="1" aria-label="Next photo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+    </div>
+    <div class="proj-dots" aria-hidden="true"></div>
   </div>
-</div>
+</section>
 
 <!-- ================= APPROACH ================= -->
 <section id="approach" class="approach">
@@ -341,6 +389,56 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Projects carousel: auto-advances, loops, pauses on hover/touch/focus
+  (() => {
+    const track = document.querySelector('.proj-track');
+    if (!track) return;
+    const cards = [...track.children];
+    const dotsWrap = document.querySelector('.proj-dots');
+    const stepSize = () => cards[0].offsetWidth + parseFloat(getComputedStyle(track).gap || 0);
+    const maxScroll = () => track.scrollWidth - track.clientWidth;
+    const go = dir => {
+      if (dir > 0 && track.scrollLeft >= maxScroll() - 5) track.scrollTo({ left: 0 });
+      else if (dir < 0 && track.scrollLeft <= 5) track.scrollTo({ left: maxScroll() });
+      else track.scrollBy({ left: dir * stepSize() });
+    };
+    // dots: one per reachable position
+    const buildDots = () => {
+      const count = Math.round(maxScroll() / stepSize()) + 1;
+      dotsWrap.innerHTML = '';
+      for (let i = 0; i < count; i++) {
+        const d = document.createElement('button');
+        d.className = 'proj-dot';
+        d.addEventListener('click', () => track.scrollTo({ left: i * stepSize() }));
+        dotsWrap.appendChild(d);
+      }
+      updateDots();
+    };
+    const updateDots = () => {
+      const i = Math.round(track.scrollLeft / stepSize());
+      [...dotsWrap.children].forEach((d, n) => d.classList.toggle('active', n === i));
+    };
+    track.addEventListener('scroll', updateDots, { passive: true });
+    window.addEventListener('resize', buildDots);
+    buildDots();
+    document.querySelectorAll('.proj-arrow').forEach(b => b.addEventListener('click', () => { go(+b.dataset.dir); pause(8000); }));
+
+    // autoplay
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let held = false, until = 0;
+    const pause = ms => { until = Date.now() + ms; };
+    const section = document.getElementById('projects');
+    section.addEventListener('mouseenter', () => held = true);
+    section.addEventListener('mouseleave', () => held = false);
+    section.addEventListener('focusin', () => held = true);
+    section.addEventListener('focusout', () => held = false);
+    track.addEventListener('touchstart', () => pause(8000), { passive: true });
+    if (!reduced) setInterval(() => {
+      if (held || document.hidden || Date.now() < until) return;
+      go(1);
+    }, 4500);
+  })();
 
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
