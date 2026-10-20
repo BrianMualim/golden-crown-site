@@ -84,6 +84,7 @@
   .about-visual { position: relative; aspect-ratio: 4/5; background: linear-gradient(150deg, var(--ink-2), var(--ink)); border-radius: 2px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.4); font-size: 13px; letter-spacing: .15em; text-transform: uppercase; text-align: center; padding: 24px; }
   #about { overflow-x: clip; }
   .about-visual::after { content: ""; position: absolute; inset: 18px -18px -18px 18px; border: 1px solid var(--gold); z-index: -1; }
+  .about-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }
 
 /* ============ Projects carousel ============ */
   .projects { background: var(--ink); color: #fff; }
@@ -225,7 +226,7 @@
         a long-term perspective, focused on building lasting value and providing quality, livable homes for Los Angeles residents.</p>
       <p>We take a direct, hands-on approach to our business. Owners, brokers, and partners work directly with decision-makers, keeping communication clear, decisions thoughtful, and transactions moving without unnecessary layers.</p>
     </div>
-    <div class="about-visual reveal">Property or team photo<br>about_pic.jpg</div>
+    <div class="about-visual reveal"><img src="about_pic.jpg" alt="Golden Crown Realty About"></div>
   </div>
 </section>
 
