@@ -154,6 +154,11 @@
   input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gold-light); }
   textarea { min-height: 130px; resize: vertical; }
   form .btn { justify-self: start; }
+  .form-status { font-size: 15px; color: var(--gold-light); min-height: 1px; }
+  .form-status.error { color: #f0a3a3; }
+  .form-sent { padding: 40px 0; }
+  .form-sent h3 { color: #fff; font-size: 30px; margin-bottom: 10px; }
+  .form-sent p { color: rgba(255,255,255,.7); }
   .form-note { font-size: 13px; color: rgba(255,255,255,.45); }
 
   /* ============ Footer ============ */

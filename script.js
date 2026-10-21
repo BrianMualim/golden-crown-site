@@ -69,4 +69,27 @@
     }, 4500);
   })();
 
+  // Contact form: send to Formspree in the background and show a thank-you on the page.
+  // Without JavaScript the form still posts normally to Formspree.
+  (() => {
+    const form = document.querySelector('.contact-form');
+    if (!form) return;
+    const status = form.querySelector('.form-status');
+    const btn = form.querySelector('button[type="submit"]');
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      btn.disabled = true; btn.textContent = 'Sending…';
+      status.textContent = ''; status.classList.remove('error');
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error();
+        form.innerHTML = '<div class="form-sent"><h3>Thank you.</h3><p>Your message has been sent. We typically respond within one business day.</p></div>';
+      } catch {
+        status.textContent = 'Something went wrong. Please try again, or email us directly.';
+        status.classList.add('error');
+        btn.disabled = false; btn.textContent = 'Send Message';
+      }
+    });
+  })();
+
   document.getElementById('year').textContent = new Date().getFullYear();

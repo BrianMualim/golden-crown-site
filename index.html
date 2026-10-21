@@ -167,13 +167,10 @@
       <div class="info-row"><div class="k">Hours</div><div class="v">Mon&ndash;Fri, 9:00 AM &ndash; 5:00 PM</div></div>
     </div>
 
-    <!--
-      FORM SETUP: static sites can't send email on their own.
-      Easiest options:
-        - Netlify: add  data-netlify="true"  to the <form> tag and host on Netlify. Submissions appear in the Netlify dashboard.
-        - Formspree: sign up free at formspree.io and replace the action URL below with your form endpoint.
-    -->
-    <form class="reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <!-- Contact form: submissions are sent by Formspree to the inbox set up on the Formspree account. -->
+    <form class="reveal contact-form" action="https://formspree.io/f/mljgqpll" method="POST">
+      <input type="hidden" name="_subject" value="New inquiry from goldencrownrealty.com">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
       <div class="row-2">
         <div><label for="name">Name</label><input id="name" name="name" required></div>
         <div><label for="email">Email</label><input id="email" name="email" type="email" required></div>
@@ -193,6 +190,7 @@
       <div><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
       <button type="submit" class="btn btn-gold">Send Message</button>
       <p class="form-note">We typically respond within one business day.</p>
+      <p class="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
