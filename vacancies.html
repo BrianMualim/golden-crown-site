@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vacancies | Golden Crown Realty</title>
+<meta name="description" content="Current apartment vacancies from Golden Crown Realty in Los Angeles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header id="top">
+  <div class="wrap nav">
+    <a href="index.html" class="brand" aria-label="Golden Crown Realty home">
+      <!-- Placeholder crown mark. Replace with the real logo (e.g. <img src="images/logo.svg">) -->
+      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M6 28 L8 13 L15 20 L20 9 L25 20 L32 13 L34 28 Z" stroke="#d9bf86" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M6 32 H34" stroke="#d9bf86" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="20" cy="9" r="1.6" fill="#d9bf86"/><circle cx="8" cy="13" r="1.4" fill="#d9bf86"/><circle cx="32" cy="13" r="1.4" fill="#d9bf86"/>
+      </svg>
+      <div class="brand-name">Golden Crown<span>Realty LLC</span></div>
+    </a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="links">
+      <a href="index.html#about">About</a>
+      <a href="vacancies.html">Vacancies</a>
+      <a href="index.html#approach">Approach</a>
+      <a href="index.html#focus">Focus Areas</a>
+      <a href="index.html#contact" class="btn btn-gold">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= PAGE HERO ================= -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">Vacancies</div>
+    <h1>Available residences.</h1>
+    <p>Browse our current openings. Select a listing to see photos, pricing, and full details.</p>
+  </div>
+</section>
+
+<!-- ================= VACANCIES ================= -->
+<!-- One <a class="vac-card"> per available unit. Each card links out to the full listing.
+     To add a photo: put the file in the repo and uncomment the <img> line.
+     When a unit is rented, delete its card. -->
+<section id="vacancies">
+  <div class="wrap">
+    <div class="vac-grid">
+
+      <a class="vac-card reveal" href="https://www.zillow.com/apartments/los-angeles-ca/5947-carlton-way/5YyKf6/" target="_blank" rel="noopener">
+        <div class="vac-img">
+          <img src="carlton.jpg" alt="5947 Carlton Way building entrance">
+          <span class="vac-badge">Available</span>
+        </div>
+        <div class="vac-body">
+          <div class="vac-hood">Hollywood</div>
+          <h3>5947 Carlton Way</h3>
+          <div class="vac-addr">Los Angeles, CA 90028</div>
+          <div class="vac-specs"><span>1 Bed</span><span>1 Bath</span><span>700 sq ft</span></div>
+          <span class="vac-link">View listing on Zillow
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+    <div class="vac-cta reveal">
+      <p>Have a question about a unit or want to schedule a viewing?</p>
+      <a href="index.html#contact" class="btn btn-gold">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap foot">
+    <div class="brand-name" style="color:#fff">Golden Crown Realty LLC</div>
+    <div>&copy; <span id="year">2026</span> Golden Crown Realty LLC. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
