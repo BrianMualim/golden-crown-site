@@ -21,7 +21,7 @@ Running record of how this site is built and the decisions made so far. Keep it 
 | `about_pic.jpg` | About section photo (1600×1200) |
 | `proj1.jpg`–`proj4.jpg` | Projects carousel photos (790×1024) |
 | `carlton.jpg` | 5947 Carlton Way listing photo (1024×682, has a small CRMLS watermark; swap if an unmarked photo is provided) |
-| `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Browser tab / bookmark icon: the gold crown on a dark rounded square. Linked in the `<head>` of every page. |
+| `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Browser tab / bookmark icon: the gold crown on a **transparent** background (owner's request, no dark square). The SVG uses the darker gold `#b8964f` on light tabs and switches to the light gold `#d9bf86` in dark mode. `apple-touch-icon.png` keeps a cream background because iOS fills transparency with black. Linked in the `<head>` of every page. |
 | `CNAME` | Custom domain. Don't touch. |
 | `images` | Stray 1-byte file, not a folder. Images live in the repo root, so reference them as `src="name.jpg"`. |
 | `README.md` | Short pointer to this file |
@@ -74,3 +74,4 @@ The old "XX" stats section was removed and replaced by the projects carousel. Do
 - **2026-10-21:** Moved Vacancies to its own page, `vacancies.html`. Split styles and scripts into shared `styles.css` and `script.js`. Added `carlton.jpg`.
 - **2026-10-21:** Added this notes file.
 - **2026-10-21:** Added the crown favicon (SVG, ICO, and Apple touch icon).
+- **2026-10-21:** Favicon background removed: now just the gold crown, adapting to light and dark tabs.
