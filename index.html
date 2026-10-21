@@ -106,6 +106,23 @@
   .proj-dot { width: 8px; height: 8px; border-radius: 50%; border: 0; background: rgba(255,255,255,.25); cursor: pointer; padding: 0; transition: all .25s; }
   .proj-dot.active { background: var(--gold-light); width: 24px; border-radius: 4px; }
 
+  /* ============ Vacancies ============ */
+  .vac-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .vac-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 2px; overflow: hidden; transition: transform .25s, box-shadow .25s; }
+  .vac-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(20,23,31,.10); }
+  .vac-img { position: relative; aspect-ratio: 4/3; background: linear-gradient(150deg, var(--ink-2), var(--ink)); }
+  .vac-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .vac-badge { position: absolute; top: 14px; left: 14px; background: var(--gold); color: #fff; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; padding: 6px 10px; border-radius: 2px; }
+  .vac-body { padding: 24px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+  .vac-hood { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  .vac-body h3 { font-size: 26px; margin: 6px 0 4px; }
+  .vac-addr { color: var(--muted); font-size: 14px; }
+  .vac-specs { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 16px 0 22px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; color: var(--text); }
+  .vac-link { margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--ink); }
+  .vac-link svg { transition: transform .2s; }
+  .vac-card:hover .vac-link { color: var(--gold); }
+  .vac-card:hover .vac-link svg { transform: translate(2px,-2px); }
+
   /* ============ Approach ============ */
   .approach { background: var(--paper-2); }
   .section-head { max-width: 640px; margin-bottom: 56px; }
@@ -157,6 +174,7 @@
     section { padding: 80px 0; }
     .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 56px; }
     .cards, .areas-list { grid-template-columns: 1fr; }
+    .vac-grid { grid-template-columns: repeat(2, 1fr); }
     .proj-card { flex-basis: calc((100% - 24px) / 2); }
     .menu-toggle { display: block; }
     .links { position: fixed; inset: 76px 0 auto 0; background: var(--ink); flex-direction: column; gap: 0; padding: 12px 24px 28px; display: none; }
@@ -168,6 +186,7 @@
     .wrap { padding: 0 16px; }
     .row-2 { grid-template-columns: 1fr; }
     .proj-card { flex-basis: 85%; }
+    .vac-grid { grid-template-columns: 1fr; }
     .proj-arrow { display: none; }
   }
 </style>
@@ -191,6 +210,7 @@
     </button>
     <nav class="links">
       <a href="#about">About</a>
+      <a href="#vacancies">Vacancies</a>
       <a href="#approach">Approach</a>
       <a href="#focus">Focus Areas</a>
       <a href="#contact" class="btn btn-gold">Contact Us</a>
@@ -265,6 +285,39 @@
       <button class="proj-arrow next" data-dir="1" aria-label="Next photo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
     </div>
     <div class="proj-dots" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ================= VACANCIES ================= -->
+<!-- One <a class="vac-card"> per available unit. Each card links out to the full listing.
+     To add a photo: put the file in the repo and uncomment the <img> line.
+     When a unit is rented, delete its card. -->
+<section id="vacancies">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Vacancies</div>
+      <h2>Available residences.</h2>
+      <p>Browse our current openings. Select a listing to see photos, pricing, and full details.</p>
+    </div>
+    <div class="vac-grid">
+
+      <a class="vac-card reveal" href="https://www.zillow.com/apartments/los-angeles-ca/5947-carlton-way/5YyKf6/" target="_blank" rel="noopener">
+        <div class="vac-img">
+          <!-- <img src="carlton.jpg" alt="5947 Carlton Way"> -->
+          <span class="vac-badge">Available</span>
+        </div>
+        <div class="vac-body">
+          <div class="vac-hood">Hollywood</div>
+          <h3>5947 Carlton Way</h3>
+          <div class="vac-addr">Los Angeles, CA 90028</div>
+          <div class="vac-specs"><span>1 Bed</span><span>1 Bath</span><span>700 sq ft</span></div>
+          <span class="vac-link">View listing on Zillow
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
   </div>
 </section>
 
