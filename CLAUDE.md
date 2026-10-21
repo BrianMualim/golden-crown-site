@@ -21,11 +21,12 @@ Running record of how this site is built and the decisions made so far. Keep it 
 | `about_pic.jpg` | About section photo (1600×1200) |
 | `proj1.jpg`–`proj4.jpg` | Projects carousel photos (790×1024) |
 | `carlton.jpg` | 5947 Carlton Way listing photo (1024×682, has a small CRMLS watermark; swap if an unmarked photo is provided) |
+| `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Browser tab / bookmark icon: the gold crown on a dark rounded square. Linked in the `<head>` of every page. |
 | `CNAME` | Custom domain. Don't touch. |
 | `images` | Stray 1-byte file, not a folder. Images live in the repo root, so reference them as `src="name.jpg"`. |
 | `README.md` | Short pointer to this file |
 
-New pages copy the shell of `vacancies.html`: same `<head>` (fonts plus `styles.css`), the same header and footer, `<script src="script.js">`, and a `.page-hero` banner at the top. On sub-pages, nav links use `index.html#section`.
+New pages copy the shell of `vacancies.html`: same `<head>` (fonts, `styles.css`, favicon links), the same header and footer, `<script src="script.js">`, and a `.page-hero` banner at the top. On sub-pages, nav links use `index.html#section`.
 
 ## Design
 - **Colors** (CSS variables in `styles.css`): ink `#14171f` / `#1d2230`, paper `#faf8f3` / `#f1ede3`, gold `#b8964f`, light gold `#d9bf86`, muted text `#6b6f7a`
@@ -72,3 +73,4 @@ The old "XX" stats section was removed and replaced by the projects carousel. Do
 - **2026-10-21:** Added Vacancies (5947 Carlton Way, links to Zillow).
 - **2026-10-21:** Moved Vacancies to its own page, `vacancies.html`. Split styles and scripts into shared `styles.css` and `script.js`. Added `carlton.jpg`.
 - **2026-10-21:** Added this notes file.
+- **2026-10-21:** Added the crown favicon (SVG, ICO, and Apple touch icon).
